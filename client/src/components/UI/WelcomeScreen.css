@@ -1,0 +1,84 @@
+.welcome {
+  flex: 1; height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 40px 24px; overflow-y: auto;
+  position: relative;
+}
+.welcome__glow {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 65% 50% at 50% 30%, rgba(59,130,246,0.07) 0%, transparent 70%);
+}
+.welcome__content {
+  width: 100%; max-width: 660px;
+  display: flex; flex-direction: column; align-items: center; gap: 36px;
+  position: relative; z-index: 1;
+}
+.welcome__hero { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.welcome__icon {
+  width: 68px; height: 68px;
+  background: var(--accent-glow); border: 1px solid rgba(59,130,246,0.25);
+  border-radius: 18px; display: flex; align-items: center; justify-content: center;
+  animation: glow 3s ease-in-out infinite;
+}
+.welcome__title {
+  font-size: 38px; font-weight: 700; letter-spacing: -1.5px;
+  background: linear-gradient(135deg, #f1f5f9 0%, #60a5fa 55%, #a78bfa 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.welcome__sub {
+  font-size: 15px; color: var(--text-secondary); line-height: 1.65;
+  max-width: 440px; text-align: center;
+}
+.welcome__form { width: 100%; }
+.welcome__input-wrap {
+  display: flex; align-items: center;
+  background: var(--bg-surface); border: 1px solid var(--border-light);
+  border-radius: 14px; padding: 6px 6px 6px 18px; gap: 8px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.welcome__input-wrap:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+.welcome__input {
+  flex: 1; background: none; border: none; outline: none;
+  font-family: var(--font-sans); font-size: 14.5px; color: var(--text-primary); padding: 8px 0;
+}
+.welcome__input::placeholder { color: var(--text-muted); }
+.welcome__submit {
+  width: 42px; height: 42px; background: var(--accent); color: white;
+  border: none; border-radius: 10px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: background var(--transition), transform var(--transition);
+}
+.welcome__submit:hover:not(:disabled) { background: var(--accent-bright); transform: scale(1.06); }
+.welcome__submit:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-spinner {
+  width: 17px; height: 17px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white; border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+.welcome__examples { width: 100%; }
+.welcome__examples-label {
+  font-size: 10.5px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.7px; color: var(--text-muted); text-align: center; margin-bottom: 12px;
+}
+.welcome__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.example-card {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 13px 14px; background: var(--bg-surface);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  cursor: pointer; text-align: left;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+  animation: fadeInUp 0.38s ease both;
+}
+.example-card:hover { background: var(--bg-elevated); border-color: rgba(59,130,246,0.4); transform: translateY(-2px); }
+.example-card:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.example-card__icon { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+.example-card__text { font-size: 12.5px; color: var(--text-secondary); line-height: 1.55; }
+
+@media (max-width: 540px) {
+  .welcome__grid { grid-template-columns: 1fr; }
+  .welcome__title { font-size: 30px; }
+}
