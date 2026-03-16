@@ -1,4 +1,7 @@
-import {configDotenv} from 'dotenv';
+// import {configDotenv} from 'dotenv';
+// configDotenv()
+import 'dotenv/config'
+
 import express from'express';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
@@ -16,9 +19,6 @@ import { fileURLToPath } from 'url';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-configDotenv({
-    path: './.env'
-})
 
 
 // Middleware
